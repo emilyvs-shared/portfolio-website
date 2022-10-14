@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+  }
+  :root {
+    --bgcolor: #242582;
+  }
+  a{
+    text-decoration: none;
+    text-align: center;
+  }
+  nav{
+    background-color: #7A0C17;
+    /* padding: 1.3rem; */
+    display: flex;
+    justify-content: space-evenly;
+  }
+  nav a{
+    flex-grow: 1;
+    color: white;
+
+    cursor: pointer;
+  }
+  .menu-icon {
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+  @media screen and (max-width: 850px){
+    .menu-icon {
+      display: block;
+    }
+    .nav-bar {
+      display: none;
+      position: absolute;
+      top: 3.7rem;
+      left: 0;
+      width: 100%;
+      background-color: var(--bgcolor);
+      text-align: center;
+    }
+  }

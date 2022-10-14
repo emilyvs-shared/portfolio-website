@@ -1,0 +1,32 @@
+.grid
+{
+	display: inline-grid;
+	grid-template-columns: repeat(auto-fit, minmax(1rem, 25rem));
+	width: 100%;
+	gap: 10px;
+	left: 50%;
+	justify-content: center;
+}
+
+.card
+{
+	border: 2px solid black;
+	border-radius: 25px;
+	margin: 10px;
+	padding: 10px;
+	max-width: 30rem;
+	background-color: #444444;
+}
+
+.card>a
+{
+	color: #DDDDDD;
+}
+
+.image
+{
+    position: relative;
+	width: 100%;
+	aspect-ratio: 16/9;
+	margin-bottom: 10px;
+}
