@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       <h1 className={ styles.title }>Welkom op mijn website</h1>
       <div className={ styles.welcome }>
         <p>
-          Welkom op mijn website, op deze website kun je de resultaten van leerjaar 1 periode 1 vinden, mijn erveringen, mijn hobby&apos;s, een wat ik allemaal heb gemaakt<br />
+          Welkom op mijn website, op deze website kun je mijn erveringen, mijn hobby&apos;s, een wat ik allemaal heb gemaakt<br />
         </p>
         <p>
           Mijn naam is troy van sleeuwen ik ben {age} jaar oud.Ik doe de opleiding software developer, omdat ik het een het interessant en leuk vind.<br />
