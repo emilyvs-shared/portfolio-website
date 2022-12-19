@@ -7,7 +7,7 @@ const Home: NextPage = () => {
 
   let birthdate = new Date("2004-10-14");
   let now = new Date();
-  let age = ((now.getTime() - birthdate.getTime()) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(3);
+  let age = ((now.getTime() - birthdate.getTime()) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(0);
 
   return (
     <>
