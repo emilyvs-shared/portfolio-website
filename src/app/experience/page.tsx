@@ -1,8 +1,6 @@
-import type { NextPage } from 'next'
+import type { NextPage, Metadata } from 'next'
 import Image from 'next/image';
-import styles from '../styles/Experience.module.scss'
-import ReactHtmlParser from 'react-html-parser';
-import Head from 'next/head';
+import styles from '../../styles/Experience.module.scss'
 
 const ExperienceSchoolEntrys: ExperienceEntry[] = [
   {
@@ -10,7 +8,7 @@ const ExperienceSchoolEntrys: ExperienceEntry[] = [
     desc: "Ik herinder me niet veel van deze school,<br /> maar ik weet nog wel dat ik het daar nog al saai vond, <br /> omdat er meestal wel een creative opdracht naast de lessen was.",
     contact: {
       name: "Openbare Jenaplan basisschool De Lichtstraat",
-      adrress: "Brabantlaan 73", 
+      address: "Brabantlaan 73", 
       city: "5262 JH Vught", 
       telephone: "073 656 3832"
     },
@@ -22,7 +20,7 @@ const ExperienceSchoolEntrys: ExperienceEntry[] = [
     desc: "Toen ik in de eerst van vond ik de school wel leuk. <br> voor het derde moesten we een keuze maken tussen dvpr en inft <br> ik koos voor inft omdat ik het toen al wist dat ik in de ict wilden werken.",
     contact: {
       name: "Elde College Gestel",
-      adrress: "Kapelbergstraat 6", 
+      address: "Kapelbergstraat 6", 
       city: "5271 VB Sint-Michielsgestel", 
       telephone: "073 820 0600"
     },
@@ -34,7 +32,7 @@ const ExperienceSchoolEntrys: ExperienceEntry[] = [
     desc: "Ik heb voor deze school gekozen omdat het leker dicht bij was. <br> ik heb voor de oplijding gekozen om dat ik het onderwerp wel leuk vond. <br> en ik vind het wel een leuke school.",
     contact: {
       name: "het koning willem 1 college",
-      adrress: "Onderwijsboulevard 3", 
+      address: "Onderwijsboulevard 3", 
       city: "5223 DE 's-Hertogenbosch", 
       telephone: "073 624 9 444"
     },
@@ -47,43 +45,57 @@ const ExperienceSchoolEntrys: ExperienceEntry[] = [
 const ExperienceWorkEntrys: ExperienceEntry[] = [
   {
     title: "Sleegers Technique",
-    desc: "",
+    desc: "stage van 29-8-2022 tot 3-2-2023",
     contact: {
       name: "Sleegers Technique",
-      adrress: "Klompenmaker 4", 
+      address: "Klompenmaker 4", 
       city: "5253 RH Nieuwkuijk", 
       telephone: "073 511 8230"
     },
-    link: {text: "website van Sleegers Technique", location: "https://www.kw1c.nl/"},
+    link: {text: "website van Sleegers Technique", location: "https://www.sleegerstechnique.com/nl"},
     img: {img: "/images/Sleegers_Technique.jpg", caption: "gebouw van Sleegers Technique"}
+  },
+  {
+    title: "DLearning",
+    desc: "stage van 5-2-2024 tot 28-6-2024",
+    contact: {
+      name: "DLearning",
+      address: "gebouw A Utopialaan 29", 
+      city: "5232 CD 's-Hertogenbosch", 
+      telephone: "073 511 8230"
+    },
+    link: {text: "website van DLearning", location: "https://www.dlearning.nl"},
+    //img: {img: "/images/Sleegers_Technique.jpg", caption: "gebouw van Sleegers Technique"}
   }
 ];
+
+const metadata: Metadata = {
+  title: "Ervaringen",
+};
 
 const Experience: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Ervaringen</title>
-      </Head>
       <h1 className={styles.title}>ervaringen(opleidingen)</h1>
 			<div className={styles.grid}>
         {ExperienceSchoolEntrys.map((entry,idx) => (
           <section key={idx} className={styles.section}>
             <h2>{entry.title}</h2>
-            <p className={styles.desc}>
-              { ReactHtmlParser(entry.desc) }
+            <p className={styles.desc} dangerouslySetInnerHTML={{ __html: entry.desc }}>
             </p>
             <p className={styles.contact}>
               Naam: {entry.contact.name}<br/>
-              adress: {entry.contact.adrress}<br/>
+              adress: {entry.contact.address}<br/>
               plaats: {entry.contact.city}<br/>
               telefoon: {entry.contact.telephone}<br/>
             </p>
             <a href={entry.link.location} target="_blank" rel="noreferrer">{entry.link.text}</a>
-            <figure className={styles.image}>
-              <Image src={entry.img.img} alt={entry.img.caption} layout='fill'/>
-              <figcaption>{entry.img.caption}</figcaption>
-            </figure>
+			{ entry.img &&
+              <figure className={styles.image}>
+				<Image src={entry.img.img} alt={entry.img.caption} fill/>
+				<figcaption>{entry.img.caption}</figcaption>
+              </figure>
+			}
           </section>
         ))}
       </div>
@@ -92,20 +104,21 @@ const Experience: NextPage = () => {
         {ExperienceWorkEntrys.map((entry,idx) => (
           <section key={idx} className={[styles.section].join(" ")}>
             <h2>{entry.title}</h2>
-            <p className={styles.desc}>
-              { ReactHtmlParser(entry.desc) }
+            <p className={styles.desc} dangerouslySetInnerHTML={{ __html: entry.desc }}>
             </p>
             <p className={styles.contact}>
               Naam: {entry.contact.name}<br/>
-              adress: {entry.contact.adrress}<br/>
+              adress: {entry.contact.address}<br/>
               plaats: {entry.contact.city}<br/>
               telefoon: {entry.contact.telephone}<br/>
             </p>
             <a href={entry.link.location} target="_blank" rel="noreferrer">{entry.link.text}</a>
-            <figure className={styles.image}>
-              <Image src={entry.img.img} alt={entry.img.caption} layout='fill'/>
-              <figcaption>{entry.img.caption}</figcaption>
-            </figure>
+			{entry.img &&
+              <figure className={styles.image}>
+				<Image src={entry.img.img} alt={entry.img.caption} fill/>
+				<figcaption>{entry.img.caption}</figcaption>
+			  </figure>
+			}
           </section>
         ))}
       </div>
@@ -113,4 +126,5 @@ const Experience: NextPage = () => {
   )
 }
 
+export {metadata};
 export default Experience;

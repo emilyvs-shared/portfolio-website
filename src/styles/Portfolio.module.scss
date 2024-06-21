@@ -1,5 +1,4 @@
-.grid
-{
+.grid {
 	display: inline-grid;
 	grid-template-columns: repeat(auto-fit, minmax(1rem, 25rem));
 	width: 100%;
@@ -8,23 +7,26 @@
 	justify-content: center;
 }
 
-.card
-{
+.card {
 	border: 2px solid black;
 	border-radius: 25px;
 	margin: 10px;
 	padding: 10px;
 	max-width: 30rem;
 	background-color: #444444;
+	h2 {
+		font-size: 1.25em;
+		color: #BBBBBB;
+	}
+	a {
+		color: #DDDDDD;
+	}
+	li::before{
+		content: "- ";
+	}
 }
 
-.card>a
-{
-	color: #DDDDDD;
-}
-
-.image
-{
+.image {
     position: relative;
 	width: 100%;
 	aspect-ratio: 16/9;

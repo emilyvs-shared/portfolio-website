@@ -12,7 +12,7 @@ interface PortfolioEntry{
 interface ExperienceEntry{
     title: string,
     desc: string,
-    contact: {name: string, adrress: string, city: string, telephone: string},
+    contact: {name: string, address: string, city: string, telephone: string},
     link: {text: string, location: string},
-    img: {img: string, caption: string}
+    img?: {img: string, caption: string}
 }

@@ -1,7 +1,6 @@
-import type { NextPage } from 'next'
-import Head from 'next/head';
+import type { NextPage, Metadata } from 'next'
 import Image from 'next/image';
-import styles from '../styles/Portfolio.module.scss'
+import styles from '../../styles/Portfolio.module.scss'
 
 let PortfolioEntrys: PortfolioEntry[] = [
   // {
@@ -29,23 +28,35 @@ let PortfolioEntrys: PortfolioEntry[] = [
   //   img: "/images/opdracht_3.2.png"
   // },
   {
-    title: "lasalclass2support",
-    desc: "een plugin voor bamboo voor het bouwen van een lasalclass2 project",
-    link: { location: "https://bitbucket.org/troyvs/lasalclass2support/src/main/", text: "link to project"}
+    title: "musicplayer (server/client)",
+    desc: "een simple cli(in de commandline) leerproject gebaseerd op mpd.",
+    link: { location: "https://bitbucket.org/emilyvs/musicplayer-server-client/src/main/", text: "link to project"}
+  },
+  {
+	title: "xerte",
+	desc: "xerte is een open-source project waar ik tijdens mijn stage bij DLearning aan heb gewerkt:<br><ul>" +
+	  "<li>de management pagina login en permissions</li>" + 
+	  "<li>de optie voor geen wardering maar wel een antwoord bij een leer object met tracking</li>" + 
+	  "<li>een xerte online toolkit pagina toe gevoegt met de naam \"image compare\"</li>" +
+	  "<li>ik heb gewerkt aan de interactive blocks feature</li>" + 
+	  "<li>bug fixes</li>" + 
+	  "</ul>",
+	link: { location: "https://xerte.org.uk/", text: "link to project" }
   }
-]
+];
+
+const metadata: Metadata = {
+  title: "Portfolio"
+};
 
 const Portfolio: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Portfolio</title>
-      </Head>
       <div className={styles.grid}>
         {PortfolioEntrys.map((entry, idx) => (
           <section key={idx} className={styles.card}>
             <h2>{entry.title}</h2>
-            <p>{entry.desc}</p>
+            <div dangerouslySetInnerHTML={{__html: entry.desc}}></div>
             {entry.link &&
               <a href={entry.link.location} target="_blank" rel="noreferrer">{entry.link.text}</a>
             }
@@ -61,4 +72,5 @@ const Portfolio: NextPage = () => {
   )
 }
 
+export {metadata};
 export default Portfolio;

@@ -1,13 +1,12 @@
-import type { NextPage } from 'next'
-import Head from 'next/head';
-import styles from '../styles/Hobbies.module.scss'
+import type { NextPage, Metadata } from 'next'
+import styles from '../../styles/Hobbies.module.scss'
 
+const metadata: Metadata = {
+  title: "Hobby's"
+};
 const hobbies: NextPage = () => {
     return (
         <>
-			<Head>
-        		<title>Hobby&apos;s</title>
-      		</Head>
             <h1 id={styles.title}>Hobby&apos;s</h1>
 			<ul id={styles.hobbies}>
 				<li>
@@ -43,4 +42,5 @@ const hobbies: NextPage = () => {
     );
 }
 
+export {metadata};
 export default hobbies;

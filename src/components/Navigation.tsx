@@ -18,9 +18,9 @@ const Navigation: NextPage<props> = (pageProps: props) => {
                 <div className="menu">
                     {navItems.map((navItem, idx) => (
                         <li key={idx}>
-                            <a href={navItem.location}>
+                            <Link href={navItem.location}>
                                 {navItem.text}
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </div>

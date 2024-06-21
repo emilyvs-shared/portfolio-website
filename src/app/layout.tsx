@@ -1,12 +1,12 @@
-import '../styles/globals.scss'
+import '../styles/globals.scss';
 import '../styles/Footer.scss';
-import type { AppProps } from 'next/app'
-import Navigation from '../components/Navigation'
-import Footer from '../components/Footer'
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import React from 'react';
 
 
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({children}: {children: React.ReactNode}) {
   let navItems: navItem[] =[
     {
       text: "Home",
@@ -31,14 +31,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   ]
 
   return (
-    <>
-      <Navigation navItems={navItems}></Navigation>
-      <main>
-        <Component {...pageProps} />
-      </main>
-      <div className="buffer"></div>
-      <Footer></Footer>
-    </>
+    <html>
+      <body>
+        <Navigation navItems={navItems}></Navigation>
+        <main>
+          {children}
+        </main>
+        <div className="buffer"></div>
+        <Footer></Footer>
+      </body>
+    </html>
   )
 }
 
